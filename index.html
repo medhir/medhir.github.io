@@ -17,32 +17,51 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
         <div class="container">
             <div class="row">
-                <div class="twelve columns">
-                    <h1 class="logo">medhir<span class="red">.</span></h1>
+                <h1 class="logo">medhir</h1>
+                <div class="logo-underline">
+                    <div class="square red-square"></div>
+                    <div class="square orange-square"></div>
+                    <div class="square yellow-square"></div>
+                    <div class="square green-square"></div>
+                    <div class="square blue-square"></div>
+                    <div class="square purple-square"></div>
                 </div>
             </div>
+
             <div class="row navbar">
                 <div class="twelve columns">
                     <nav>
                         <ul class="navbar-list">
-                            <li class="navbar-item"><a class="navbar-link" href="#">about</a></li>
                             <li class="navbar-item"><a class="navbar-link" href="#">writing</a></li>
-                            <li class="navbar-item"><a class="navbar-link" href="https://instagram.com/medhir/">photos</a></li>
+                            <li class="navbar-item"><a class="navbar-link" href="#">about</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <section class="main-content">
-                <h1 class="header"><span>hello there<span></h1>
-                <p>My name is Medhir Bhargava. I am a computer engineering student at the University of Florida. This page is a continual work-in-progress, serving as an expression of my current thoughts/interests.</p>
+                <div class="row">
+                    <h3 class="header"><span class="red">.</span>hello there</h3>
+                    <p>My name is Medhir Bhargava, and I currently study computer engineering student at the University of Florida. This page will be a continual work-in-progress, serving as an expression of my current thoughts/interests.</p>
+                    <p>My current pursuits include web development, bioengineering research, computer science education, and design.</p>
+                </div>
+                <div class="row">
+                    <div class="nine columns">
+                        <h3 class="header"><span class="brown">.</span>instagram</h3>
+                        <div id="instafeed"></div>
+                    </div>
+                    <div class="three columns">
+                        <h3 class="header right">twitter<span class="twitter-blue">.</span></h3>
+                    </div>
+                </div>
             </section>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="js/instafeed.js"></script>
+        <script src="js/app.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 

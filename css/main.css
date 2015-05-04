@@ -101,8 +101,19 @@ textarea {
     font-weight: 500; 
 }
 
-.header span {
-    border-bottom: 1px solid #ff0000;
+.logo-underline {
+    margin-left: 3%;
+}
+
+.logo-underline .square {
+    float: left;
+    margin-right: 5%;
+    margin-bottom: 30px;
+}
+
+.square {
+    height: 18px;
+    width: 18px;
 }
 
 @media (min-width: 400px) {
@@ -118,8 +129,22 @@ textarea {
 
     .header {
         font-size: 2em;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
+    .square {
+        height: 10px;
+        width: 10px;
+    }
+
+    .logo-underline .square {
+        margin-right: 8%;
+    }
+
+    .navbar {
+        margin-bottom: 5%;
+    }
 
 }
 
@@ -135,8 +160,22 @@ textarea {
 
     }
 
+    .square {
+        height: 13px;
+        width: 13px;
+    }
+
     .header {
+        padding: 0;
         font-size: 3em;
+    }
+
+    .logo-underline .square {
+        margin-right: 6%;
+    }
+
+    .navbar {
+        margin-bottom: 3%;
     }
 }
 
@@ -144,22 +183,79 @@ textarea {
     .logo {
         font-size: 7em;
     }
+
+    .square {
+        height: 18px;
+        width: 18px;
+    }
+
+    .logo-underline .square {
+        margin-right: 5%;
+    }
+
+    .navbar {
+        margin-bottom: 1%;
+    }
 }
 
 .red {
     color: #ff0000;
 }
 
-
-.bottom-right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+.red-square {
+    background-color: #ff0000;
 }
-.navbar {
-    border-top: 1px solid #ff0000;
-    border-bottom: 1px solid #ff0000;
-    margin-bottom: 7%;
+
+.orange {
+    color: #FF9900;
+}
+
+.orange-square {
+    background-color: #FF9900;
+}
+
+.yellow {
+    color: #FFFF00;
+}
+
+.yellow-square {
+    background-color: #FFFF00;
+}
+
+.green {
+    color: #00CC00;
+}
+
+.green-square {
+    background-color: #00CC00;
+}
+
+.blue {
+    color: #0000FF;
+}
+
+.blue-square {
+    background-color: #0000FF;
+}
+
+.purple {
+    color: #CC33FF;
+}
+
+.purple-square {
+    background-color: #CC33FF;
+}
+
+.brown {
+    color: #663300;
+}
+
+.twitter-blue {
+    color: #00CCFF;
+}
+
+.right {
+    float: right;
 }
 
 .navbar-list {
@@ -169,9 +265,13 @@ textarea {
     right: 0;
 }
 
+.navbar {
+    border-bottom: 1px solid #000;
+}
+
 .navbar-item {
     position: relative;
-    float: left;
+    float: right;
     margin-left: 1.5%;
     margin-right: 1.5%;
     margin-bottom: 0px;
@@ -181,10 +281,12 @@ textarea {
     font-size: 1.5em;
     text-decoration: none;
     color: #000;
+    padding: 0px 10px;
 }
 
 .navbar-link:hover {
-    color: #ff0000;
+    color: #000;
+    border-top: 1px solid #000;
 }
 
 

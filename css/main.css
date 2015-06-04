@@ -146,6 +146,13 @@ textarea {
         margin-bottom: 5%;
     }
 
+    #instafeed img {
+        width: 45%; 
+        margin-right: 2.5%;
+        margin-left: 2.5%;
+        margin-bottom: 5%;
+    }
+
 }
 
 /* Larger than tablet */
@@ -177,6 +184,11 @@ textarea {
     .navbar {
         margin-bottom: 3%;
     }
+
+    #instafeed img {
+        width: 45%;
+        margin: 10px;
+    }
 }
 
 @media (min-width: 1000px) {
@@ -196,6 +208,24 @@ textarea {
     .navbar {
         margin-bottom: 1%;
     }
+
+    #instafeed img {
+        width: 30%;
+        margin: 10px;
+    }
+}
+
+.header-underline {
+    border-bottom: 1px solid black;
+}
+
+.black-square {
+    background-color: #000;
+}
+
+.white-square {
+    background-color: white;
+    border: 1px solid #000;
 }
 
 .red {
@@ -250,6 +280,10 @@ textarea {
     color: #663300;
 }
 
+.black {
+    color: #000;
+}
+
 .twitter-blue {
     color: #00CCFF;
 }
@@ -281,7 +315,7 @@ textarea {
     font-size: 1.5em;
     text-decoration: none;
     color: #000;
-    padding: 0px 10px;
+    padding: 3px 10px 0px 10px;
 }
 
 .navbar-link:hover {
@@ -289,6 +323,45 @@ textarea {
     border-top: 1px solid #000;
 }
 
+.invert {
+    background-color: #000;
+    color: #fff;
+    border-color: white;
+}
+
+.invert a, .invert a:hover {
+    color: #fff;
+    border-color: white;
+}
+
+.invert .navbar {
+    border-bottom: 1px solid #fff;
+}
+
+
+/* ==========================================================================
+   Post stylings
+   ========================================================================== */
+.post {
+    background-color: #eeecec;
+    border-right: 5px solid red;
+    border-left: 5px solid red; 
+}
+
+.title {
+    margin: 0px 10px 0px 10px;
+}
+
+.subtitle {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0px 10px 0px 10px;
+}
+
+.date {
+    font-weight: bold;
+    margin: 0px 10px 0px 10px;
+}
 
 /* ==========================================================================
    Helper classes

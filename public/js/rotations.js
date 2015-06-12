@@ -22,7 +22,8 @@ BinaryTree.prototype.rotateRight = function() {
   var left = this.left;
   //old root is now at the right of the new root 
   var newRight = new BinaryTree(this.value, this.left.right, this.right);
-  //left tree of root is now the right tree of the left tree of the old root
+
+  //set correct values for the new, rotated tree.
   this.value = left.value;
   this.left = left.left
   this.right = newRight;
@@ -30,10 +31,14 @@ BinaryTree.prototype.rotateRight = function() {
 
 //Rotate left 
 BinaryTree.prototype.rotateLeft = function() {
+  //check for right child
+  if(this.right === null) return;
   //right tree becomes new root 
   var right = this.right;
   //old root is now at the left of the new root 
   var newLeft = new BinaryTree(this.value, this.left, this.right.left);
+
+  //set correct values for the new, rotated tree
   this.value = right.value;
   this.left = newLeft;
   this.right = right.right;
@@ -105,7 +110,7 @@ var AnimatedTree = function(tree, className) {
 
   //creates width and height values
   this.width = parseInt(d3.select(this.className).style('width'), 10);
-  this.height = this.width; 
+  this.height = this.width * 3/4; 
 
   console.log(this.width);
 
@@ -215,6 +220,13 @@ AnimatedTree.prototype.animate = function() {
   .attr("d", function(d) {return that.line(d);});
 };
 
+AnimatedTree.prototype.add = function(value) {
+  this.tree.add(value);
+  this.generate();
+  this.drawNodes();
+  this.animate();
+}
+
 AnimatedTree.prototype.right = function() {
   this.tree.rotateRight();
   this.generate();
@@ -227,25 +239,29 @@ AnimatedTree.prototype.left = function() {
   this.animate();
 };
 
+
+var structure = new BinaryTree(5);
+var values = [3,7,1,4,6,8];
+values.forEach(function(value){
+  structure.add(value);
+});
+
+
+var structureTree = new AnimatedTree(structure, 'structureTree');
+
+
 var linkedListTree = new BinaryTree(1);
 var values = [2,3,4,5,6];
-values.forEach(function(value) {
+values.forEach(function(value){
   linkedListTree.add(value);
 });
 
-var mainTree = new BinaryTree(5);
-var values = [3,7,1,4,6,8];
-values.forEach(function(value) {
-  mainTree.add(value);
-});
 
-var first = new AnimatedTree(linkedListTree, 'linkedListTree');
-var second = new AnimatedTree(mainTree, 'mainTree');
-
+var linked = new AnimatedTree(linkedListTree, 'linkedListTree');
 $('#linkedRotateLeft').on('click', function() {
-  first.right();
+  linked.left();
 });
 
 $('#linkedRotateRight').on('click', function() {
-  first.left();
+  linked.right();
 });

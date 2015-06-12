@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/skeleton.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/tomorrow-night-bright.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -21,12 +22,12 @@
             <div class="row">
                 <h1 class="logo">binary tree rotations</h1>
                 <div class="logo-underline">
-                    <div class="square blue-square"></div>
-                    <div class="square blue-square"></div>
-                    <div class="square blue-square"></div>
-                    <div class="square blue-square"></div>
-                    <div class="square blue-square"></div>
-                    <div class="square blue-square"></div>
+                    <div class="square purple-square"></div>
+                    <div class="square purple-square"></div>
+                    <div class="square purple-square"></div>
+                    <div class="square purple-square"></div>
+                    <div class="square purple-square"></div>
+                    <div class="square purple-square"></div>
                 </div>
             </div>
 
@@ -43,9 +44,40 @@
             <section class="main-content">
                 <div class="row">
                     <div class="twelve columns">
-                        <p>Binary search tree (BST) data structures are useful for searching through data with quick lookup times. In the best case scenario, a BST will yield a search time of O(lgN), where N is the number of values in the tree.</p>
-                        <p>However there are many instances where a BST won't achieve this best case scenario. For instance, if we always add values to our tree that are greater than the root, the tree will devolve into a list of numbers, with a lookup time of O(N)</p>
+                        <p>Binary search tree (BST) data structures are useful for searching through data by cutting the search size in half every time a value is not found.</p> 
                     </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <p>To achieve this, we must structure the data according to some basic rules:</p>
+                        <ul>
+                            <li>If a value is <strong>greater</strong> than the root, insert to the <strong>right</strong> of the node.</li> 
+                            <li>If a value is <strong>less</strong> than the root, insert it to the <strong>left</strong>.</li>
+                        </ul>
+                        <p>In the tree to your right, the root node has a value of 5, with larger values to the right, and smaller values to the left.</p>
+                    </div>
+                    <div class="six columns structureTree"></div>
+                </div>
+                <div class="row">
+                    <p>This is the code for a basic binary tree, using JavaScript's psuedoclassical instantiation pattern: </p>
+                    <pre><code class="javascript">
+        //initialize tree
+        var BinaryTree = function(value, left, right) {
+          this.value = value;
+          this.left = left || null;
+          this.right = right || null;
+        };
+
+        //insert
+        BinaryTree.prototype.add = function(value) {
+          if(value > this.value) {
+            this.right === null ? this.right = new BinaryTree(value) : this.right.add(value);
+          } else {
+            this.left === null ? this.left = new BinaryTree(value) : this.left.add(value);
+          }
+        };
+                    </code></pre>
+                    <p>In the best case scenario, a BST will yield a search time of O(lgN), where N is the number of values in the tree. However there are many instances where a BST won't achieve this best case scenario. For instance, if we always add values to our tree that are greater than the root, the tree will devolve into a list of numbers, with a lookup time of O(N)</p>
                 </div>
                 <div class="row">
                     <div class="six columns">
@@ -59,8 +91,55 @@
                         <div class="linkedListTree"></div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="twelve-columns mainTree"></div>
+                <div>
+                    <div class="row">
+                        <p>Binary search tree rotations are used to <strong>rebalance</strong> the tree structure. In the above example, rotations would be useful by reducing the number of nodes we need to traverse in order to get to the desired value</p>
+                        <p>The term "rotate" can be somewhat confusing, because it's not entirely clear what action is executed when we "rotate" a tree to the left or right. The term <strong>rotate</strong> when used in reference to a tree node, describes how the node will be placed in the data structure.</p>
+                        <h5><strong>When a node is "rotated" right:</strong></h5>
+                        <p>
+                           1. The node's left child becomes the new root.<br/>
+                           2. The original node gets placed as the right child of the new root.<br/>
+                           3. The original node's new left child becomes any nodes that were to the right of it's original left child.
+                        </p>
+                        <pre><code class="javascript">
+            //Rotate right
+            BinaryTree.prototype.rotateRight = function() {
+              //check for left child
+              if(this.left === null) return;
+              //left tree becomes new root
+              var left = this.left;
+              //old root is now at the right of the new root 
+              var newRight = new BinaryTree(this.value, this.left.right, this.right);
+
+              //set correct values for the new, rotated tree.
+              this.value = left.value;
+              this.left = left.left
+              this.right = newRight;
+            };
+                        </code></pre>
+                        <h5><strong>When a node is "rotated" left:</strong></h5>
+                        <p>
+                           1. The node's right child becomes the new root.<br/>
+                           2. The original node gets placed as the left child of the new root.<br/>
+                           3. The original node's new right child becomes any nodes that were to the left of it's original right child.
+                        </p>
+                        <pre><code class="javascript">
+            //Rotate left 
+            BinaryTree.prototype.rotateLeft = function() {
+              //check for right child
+              if(this.right === null) return;
+              //right tree becomes new root 
+              var right = this.right;
+              //old root is now at the left of the new root 
+              var newLeft = new BinaryTree(this.value, this.left, this.right.left);
+
+              //set correct values for the new, rotated tree
+              this.value = right.value;
+              this.left = newLeft;
+              this.right = right.right;
+            };
+                        </code></pre>
+                    </div>
                 </div>
             </section>
         </div>
@@ -71,6 +150,8 @@
         <script src="js/rotations.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+        <script src="lib/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <!--<script>

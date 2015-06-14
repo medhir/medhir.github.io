@@ -1,0 +1,25 @@
+@-webkit-keyframes rotate-right {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotate-right {
+    -webkit-animation: rotate-right 4s linear infinite;
+}
+
+@-webkit-keyframes rotate-left {
+    from{
+        -webkit-transform: rotate(360deg);
+    }
+    to{
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+.rotate-left {
+    -webkit-animation: rotate-left 4s linear infinite;
+}

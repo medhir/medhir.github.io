@@ -344,6 +344,7 @@ textarea {
    ========================================================================== */
 .post {
     background-color: #eeecec;
+    margin-bottom: 5px;
 }
 
 .post a {
@@ -359,6 +360,11 @@ textarea {
 .post-blue {
     border-right: 5px solid blue;
     border-left: 5px solid blue; 
+}
+
+.post-black {
+    border-right: 5px solid black;
+    border-left: 5px solid black; 
 }
 
 .title {

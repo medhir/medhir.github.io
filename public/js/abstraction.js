@@ -23,8 +23,17 @@ d3.select('#titleContainer').selectAll("div")
                 'position': 'absolute'
               });
 
-d3.select('titleContainer').append('h2')
-  .
+d3.select('#titleContainer').append('h4')
+  .text('exploring abstraction')
+  .style({
+    'text-align': 'center'
+  });
 
-console.dir(circle);
 
+var abstractionHeight = parseInt(d3.select('#titleContainer h4').style('height'), 10);
+
+d3.select('#titleContainer h4')
+  .style({
+    'padding-top' : (titleHeight/2 - abstractionHeight) + 'px', 
+    'padding-bottom' : (titleHeight/2 - abstractionHeight) + 'px'
+  });

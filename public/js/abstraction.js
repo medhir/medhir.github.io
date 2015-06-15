@@ -38,27 +38,31 @@ var appendLine = function(i) {
                 });
 };
 
-var generateTitle = function(number) {
+var generateTitle = function(number, step) {
   var count = 0; 
   var interval = setInterval(function(){
     appendLine(count);
     count++;
     if(count === number) clearInterval(interval);
-  },20);
+  },step);
 
-    d3.select('#titleContainer').append('h4')
-      .text('exploring abstraction')
-      .style({
-        'text-align': 'center'
-      });
+  d3.select('#titleContainer').append('h4')
+    .text('exploring abstraction')
+    .style({
+      'text-align': 'center'
+    });
 
-    var abstractionHeight = parseInt(d3.select('#titleContainer h4').style('height'), 10);
+  var abstractionHeight = parseInt(d3.select('#titleContainer h4').style('height'), 10);
 
-    d3.select('#titleContainer h4')
-      .style({
-        'padding-top' : (titleHeight/2 - abstractionHeight) + 'px', 
-        'padding-bottom' : (titleHeight/2 - abstractionHeight) + 'px'
-      });
+  d3.select('#titleContainer h4')
+    .style({
+      'padding-top' : (titleHeight/2 - abstractionHeight) + 'px', 
+      'padding-bottom' : (titleHeight/2 - abstractionHeight) + 'px'
+    });
 };
 
-generateTitle(720);
+if(titleWidth < 500) {
+  generateTitle(360,1);
+} else {
+  generateTitle(720, 20);
+}

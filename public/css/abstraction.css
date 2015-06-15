@@ -8,7 +8,7 @@
 }
 
 .rotate-right {
-    -webkit-animation: rotate-right 4s linear infinite;
+    -webkit-animation: rotate-right 7s linear infinite;
 }
 
 @-webkit-keyframes rotate-left {
@@ -21,5 +21,25 @@
 }
 
 .rotate-left {
-    -webkit-animation: rotate-left 4s linear infinite;
+    -webkit-animation: rotate-left 7s linear infinite;
+}
+
+
+@media (min-width: 200px) {
+    #titleContainer h4 {
+        font-size: 1.2em;
+    }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+    #titleContainer h4 {
+        font-size: 2.5em;
+    }
+}
+
+@media (min-width: 1000px) {
+    #titleContainer h4 {
+        font-size: 3.5em;
+    }
 }

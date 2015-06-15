@@ -7,40 +7,25 @@ var titleWidth = parseInt(d3.select('#titleContainer').style('width'), 10),
     lineHeight = 1,
     color = "white";
 
-// d3.select('#titleContainer').selectAll("div")
-//              .data(d3.range(lineCount))
-//              .enter().append("div")
-//              .attr("class", function(i) {
-//                   if(i%2 === 0) return "rotate-right";
-//                   else return "rotate-left";
-//               })
-//               .style('top', function(i) { return (Math.round(titleHeight/2 + radius * Math.sin(i))) + 'px'; })
-//               .style('left', function(i) { return (Math.round(titleWidth/2 + radius * Math.cos(i)) - lineWidth/2) + 'px'; })
-//               .style({ 
-//                 'background-color' : color, 
-//                 'height': lineHeight + 'px',
-//                 'width': lineWidth + 'px',
-//                 'position': 'absolute'
-//               });
-
-d3.select('#titleContainer').append('h4')
-  .text('exploring abstraction')
-  .style({
-    'text-align': 'center'
-  });
+// d3.select('#titleContainer').append('h4')
+//   .text('exploring abstraction')
+//   .style({
+//     'text-align': 'center'
+//   });
 
 
-var abstractionHeight = parseInt(d3.select('#titleContainer h4').style('height'), 10);
+// var abstractionHeight = parseInt(d3.select('#titleContainer h4').style('height'), 10);
 
-d3.select('#titleContainer h4')
-  .style({
-    'padding-top' : (titleHeight/2 - abstractionHeight) + 'px', 
-    'padding-bottom' : (titleHeight/2 - abstractionHeight) + 'px'
-  });
+// d3.select('#titleContainer h4')
+//   .style({
+//     'padding-top' : (titleHeight/2 - abstractionHeight) + 'px', 
+//     'padding-bottom' : (titleHeight/2 - abstractionHeight) + 'px'
+//   });
 
 var appendLine = function(i) {
-  var x = (Math.round(titleWidth/2 + radius * Math.cos(i)) - lineWidth/2) + 'px'; 
-      y = (Math.round(titleHeight/2 + radius * Math.sin(i))) + 'px'; 
+  var radian = i * Math.PI / 180;
+  var x = (Math.round(titleWidth/2 + radius * Math.cos(radian)) - lineWidth/2) + 'px'; 
+      y = (Math.round(titleHeight/2 + radius * Math.sin(radian))) + 'px'; 
   d3.select('#titleContainer').append("div")
                 .attr("class", "rotate-right")
                 .style('top', y)
@@ -53,13 +38,27 @@ var appendLine = function(i) {
                 });
 };
 
-var generateTitle = function() {
+var generateTitle = function(number) {
   var count = 0; 
   var interval = setInterval(function(){
     appendLine(count);
     count++;
-    if(count === 360) clearInterval(interval);
-  },1);
+    if(count === number) clearInterval(interval);
+  },20);
+
+    d3.select('#titleContainer').append('h4')
+      .text('exploring abstraction')
+      .style({
+        'text-align': 'center'
+      });
+
+    var abstractionHeight = parseInt(d3.select('#titleContainer h4').style('height'), 10);
+
+    d3.select('#titleContainer h4')
+      .style({
+        'padding-top' : (titleHeight/2 - abstractionHeight) + 'px', 
+        'padding-bottom' : (titleHeight/2 - abstractionHeight) + 'px'
+      });
 };
 
-generateTitle();
+generateTitle(720);

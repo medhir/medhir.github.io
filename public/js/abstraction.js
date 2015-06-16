@@ -22,12 +22,12 @@ var titleWidth = parseInt(d3.select('#titleContainer').style('width'), 10),
 //     'padding-bottom' : (titleHeight/2 - abstractionHeight) + 'px'
 //   });
 
-var appendLine = function(i) {
+var appendLine = function(i, rotateClass) {
   var radian = i * Math.PI / 180;
   var x = (Math.round(titleWidth/2 + radius * Math.cos(radian)) - lineWidth/2) + 'px'; 
       y = (Math.round(titleHeight/2 + radius * Math.sin(radian))) + 'px'; 
   d3.select('#titleContainer').append("div")
-                .attr("class", "rotate-right")
+                .attr("class", rotateClass)
                 .style('top', y)
                 .style('left', x)
                 .style({ 
@@ -38,13 +38,20 @@ var appendLine = function(i) {
                 });
 };
 
-var generateTitle = function(number, step) {
-  var count = 0; 
-  var interval = setInterval(function(){
-    appendLine(count);
-    count++;
-    if(count === number) clearInterval(interval);
-  },step);
+var generateTitle = function(number, step, mobile) {
+  if(mobile === true) {
+    for(var i = 0; i < number; i++) {
+      if(i % 2 === 0) appendLine(i, 'rotate-right');
+      else appendLine(i, 'rotate-left');
+    }
+  } else {
+    var count = 0; 
+    var interval = setInterval(function(){
+      appendLine(count, 'rotate-right');
+      count++;
+      if(count === number) clearInterval(interval);
+    },step);
+  }
 
   d3.select('#titleContainer').append('h4')
     .text('exploring abstraction')
@@ -62,7 +69,7 @@ var generateTitle = function(number, step) {
 };
 
 if(titleWidth < 500) {
-  generateTitle(360,1);
+  generateTitle(360, 40, true);
 } else {
-  generateTitle(720, 20);
+  generateTitle(720, 20, false);
 }

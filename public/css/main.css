@@ -318,6 +318,16 @@ textarea {
     padding: 3px 10px 0px 10px;
 }
 
+.socialLink {
+    color: black;
+    text-decoration: none;
+}
+
+.socialLink:hover {
+    color: black;
+    text-decoration: underline;
+}
+
 .navbar-link:hover {
     color: #000;
     border-top: 1px solid #000;
@@ -365,6 +375,11 @@ textarea {
 .post-black {
     border-right: 5px solid black;
     border-left: 5px solid black; 
+}
+
+.post-pink {
+    border-right: 5px solid #FFA3D1;
+    border-left: 5px solid #FFA3D1;
 }
 
 .title {

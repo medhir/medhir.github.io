@@ -122,8 +122,10 @@ textarea {
     }
 
     p {
-        padding-left: 5%;
-        padding-right: 5%;
+        text-align: justify;
+        text-justify: inter-word;
+        padding-left: 2%;
+        padding-right: 2%;
         font-size: 1em;
     }
 

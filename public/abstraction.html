@@ -49,7 +49,20 @@
                         <p>Abstraction is a powerful concept when reasoning about computational problems.
                         This post originates from some of my own exploration of abstraction in the context of creating web-based animations.</p>
                         <h5>At the beginning, a simple question was posed...</h5>
-                        <p>How can we take something as simple as a line, and give it properties such that it looks visually interesting?</p>
+                        <p>How can we take something as simple as a line, and give it properties such that it looks visually interesting? In this post, I will make use of Javascript classes and subclasses to achieve the end result shown above. Our base class (a simple line) will have the following two properties:</p>
+                        <ul>
+                            <li>A height</li>
+                            <li>A width</li>
+                        </ul>
+                        <p>This is a fairly trivial piece of code to write, but it get's us headed along the right track. We can already do many things, just with an element that has these two simple properties. For instance: </p>
+                        <ul>
+                            <li>The "line" could be a square or a rectangle, depending on the height and width properties we pass in.</li>
+                            <li>We could (theoretically) render a barcode, by mapping the bars to individual lines, each with their own width and height.</li>
+                        </ul>
+                        <p>The line becomes the base tool to which we add additional properties. Maybe we could create a spinning line class, that inherits a height and width from a line, but also an additional property "direction" that determines the direction of the line's spin.</p>
+                        <h5>Why is it important to inherit properties?</h5>
+                        <p>It would have been easy enough to just add a "spin" property to our line class, and then specify whether or not we want our line to spin. But what if you have lines with different behaviors, such as an elongating line (which becomes longer), or a expanding line (which becomes bigger)? Suddenly, we have to add a ton of different properties to the same "line" class, and also specify upon creation whether or not we want a specific property added. A much more modular approach to this problem would be to create separate classes, each of which <strong>inherit</strong> from the line class.</p>
+                        
                     </div>
                 </div>
             </section>

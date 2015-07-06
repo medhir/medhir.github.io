@@ -22,12 +22,12 @@
             <div class="row">
                 <h1 class="logo">binary tree rotations</h1>
                 <div class="logo-underline">
-                    <div class="square purple-square"></div>
-                    <div class="square purple-square"></div>
-                    <div class="square purple-square"></div>
-                    <div class="square purple-square"></div>
-                    <div class="square purple-square"></div>
-                    <div class="square purple-square"></div>
+                    <div class="square blue-square"></div>
+                    <div class="square blue-square"></div>
+                    <div class="square blue-square"></div>
+                    <div class="square blue-square"></div>
+                    <div class="square blue-square"></div>
+                    <div class="square blue-square"></div>
                 </div>
             </div>
 
@@ -61,21 +61,21 @@
                 <div class="row">
                     <p>This is the code for a basic binary tree, using JavaScript's psuedoclassical instantiation pattern: </p>
                     <pre><code class="javascript">
-        //initialize tree
-        var BinaryTree = function(value, left, right) {
-          this.value = value;
-          this.left = left || null;
-          this.right = right || null;
-        };
+      //initialize tree
+      var BinaryTree = function(value, left, right) {
+        this.value = value;
+        this.left = left || null;
+        this.right = right || null;
+      };
 
-        //insert
-        BinaryTree.prototype.add = function(value) {
-          if(value > this.value) {
-            this.right === null ? this.right = new BinaryTree(value) : this.right.add(value);
-          } else {
-            this.left === null ? this.left = new BinaryTree(value) : this.left.add(value);
-          }
-        };
+      //insert
+      BinaryTree.prototype.add = function(value) {
+        if(value > this.value) {
+          this.right === null ? this.right = new BinaryTree(value) : this.right.add(value);
+        } else {
+          this.left === null ? this.left = new BinaryTree(value) : this.left.add(value);
+        }
+      };
                     </code></pre>
                     <p>In the best case scenario, a BST will yield a search time of O(lgN), where N is the number of values in the tree. However there are many instances where a BST won't achieve this best case scenario. For instance, if we always add values to our tree that are greater than the root, the tree will devolve into a list of numbers, with a lookup time of O(N)</p>
                 </div>
@@ -102,20 +102,20 @@
                            3. The original node's new left child becomes any nodes that were to the right of it's original left child.
                         </p>
                         <pre><code class="javascript">
-            //Rotate right
-            BinaryTree.prototype.rotateRight = function() {
-              //check for left child
-              if(this.left === null) return;
-              //left tree becomes new root
-              var left = this.left;
-              //old root is now at the right of the new root 
-              var newRight = new BinaryTree(this.value, this.left.right, this.right);
+      //Rotate right
+      BinaryTree.prototype.rotateRight = function() {
+        //check for left child
+        if(this.left === null) return;
+        //left tree becomes new root
+        var left = this.left;
+        //old root is now at the right of the new root 
+        var newRight = new BinaryTree(this.value, this.left.right, this.right);
 
-              //set correct values for the new, rotated tree.
-              this.value = left.value;
-              this.left = left.left
-              this.right = newRight;
-            };
+        //set correct values for the new, rotated tree.
+        this.value = left.value;
+        this.left = left.left
+        this.right = newRight;
+      };
                         </code></pre>
                         <h5><strong>When a node is "rotated" left:</strong></h5>
                         <p>
@@ -124,22 +124,39 @@
                            3. The original node's new right child becomes any nodes that were to the left of it's original right child.
                         </p>
                         <pre><code class="javascript">
-            //Rotate left 
-            BinaryTree.prototype.rotateLeft = function() {
-              //check for right child
-              if(this.right === null) return;
-              //right tree becomes new root 
-              var right = this.right;
-              //old root is now at the left of the new root 
-              var newLeft = new BinaryTree(this.value, this.left, this.right.left);
+      //Rotate left 
+      BinaryTree.prototype.rotateLeft = function() {
+        //check for right child
+        if(this.right === null) return;
+        //right tree becomes new root 
+        var right = this.right;
+        //old root is now at the left of the new root 
+        var newLeft = new BinaryTree(this.value, this.left, this.right.left);
 
-              //set correct values for the new, rotated tree
-              this.value = right.value;
-              this.left = newLeft;
-              this.right = right.right;
-            };
+        //set correct values for the new, rotated tree
+        this.value = right.value;
+        this.left = newLeft;
+        this.right = right.right;
+      };
                         </code></pre>
                     </div>
+                </div>
+                <div class="row">
+                  <div class="twelve columns">
+                    <p>Here are a few more trees to better help visualize the process of using binary search tree rotations. When rotating, take a close look at how the root node is moving. Visit <a href="https://en.wikipedia.org/wiki/Tree_rotation">Wikipedia's page on tree rotations</a> for more information.</p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="six columns">
+                    <div class="tree1"></div>
+                    <a id="tree1Left" class="button">Rotate Left</a>    
+                    <a id="tree1Right" class="button">Rotate Right</a>
+                  </div>
+                  <div class="six columns">
+                    <div class="tree2"></div>
+                    <a id="tree2Left" class="button">Rotate Left</a>    
+                    <a id="tree2Right" class="button">Rotate Right</a>
+                  </div>
                 </div>
             </section>
         </div>

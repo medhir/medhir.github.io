@@ -59,47 +59,75 @@ BinaryTree.prototype.draw = function(x, y, step) {
   }
 
   generateCoordinates(this, y);
+};
+
+/* Tree Traversal Methods */
+
+BinaryTree.prototype.PreOrder = function(cb) {
+  cb(this);
+  if(this.left) this.left.PreOrder(cb);
+  if(this.right) this.right.PreOrder(cb);
+};
+
+BinaryTree.prototype.InOrder = function(cb) {
+  if(this.left) this.left.InOrder(cb);
+  cb(this);
+  if(this.right) this.right.InOrder(cb);
+};
+
+BinaryTree.prototype.PostOrder = function(cb) {
+  if(this.left) this.left.PostOrder(cb);
+  if(this.right) this.right.PostOrder(cb);
+  cb(this);
+};
+
+BinaryTree.prototype.LevelOrder = function(cb) {
+  var q = [];
+  var node = this;
+  while(node !== null) {
+    cb(node);
+    if(node.left) q.push(node.left); 
+    if(node.right) q.push(node.right);
+    q.length ? node = q.shift() : node = null;
+  }
 }
 
 //array representation of nodes for d3 animations
 BinaryTree.prototype.nodeArray = function() {
   var array = [];
-  var generate = function(tree) {
+
+  this.InOrder(function(node) {
     array.push({
-      value : tree.value, 
-      x: tree.x, 
-      y: tree.y
+      value : node.value, 
+      x : node.x, 
+      y : node.y
     });
-    if(tree.left) generate(tree.left);
-    if(tree.right) generate(tree.right);
-  }
-  generate(this);
+  });
+
   return array;
 }
 
 //Array representation of links connecting the nodes
 BinaryTree.prototype.pathArray = function() {
   var array = [];
-  var generate = function(tree) {
-    if(tree.left) {
+
+  this.InOrder(function(node) {
+    if(node.left) {
       //push path to left child node
       array.push([
-        {x: tree.x, y: tree.y}, 
-        {x: tree.left.x, y: tree.left.y}
+        {x: node.x, y: node.y}, 
+        {x: node.left.x, y: node.left.y}
         ]);
-      //generate paths one level down 
-      generate(tree.left);
     }
-    if(tree.right) {
+    if(node.right) {
       //push path to right child node
       array.push([
-        {x: tree.x, y: tree.y}, 
-        {x: tree.right.x, y: tree.right.y}
+        {x: node.x, y: node.y}, 
+        {x: node.right.x, y: node.right.y}
         ]);
-      generate(tree.right);
     }
-  }
-  generate(this);
+  });
+  
   return array;
 };
 
@@ -258,10 +286,44 @@ values.forEach(function(value){
 
 
 var linked = new AnimatedTree(linkedListTree, 'linkedListTree');
+
 $('#linkedRotateLeft').on('click', function() {
   linked.left();
 });
 
 $('#linkedRotateRight').on('click', function() {
   linked.right();
+});
+
+
+var tree1 = new BinaryTree(7);
+var values = [3,8,4,6,5,1];
+values.forEach(function(value){
+  tree1.add(value);
+});
+
+var tree1animate = new AnimatedTree(tree1, 'tree1');
+
+$('#tree1Left').on('click', function() {
+  tree1animate.left();
+});
+
+$('#tree1Right').on('click', function() {
+  tree1animate.right();
+});
+
+var tree2 = new BinaryTree(10);
+var values = [5,14,3,50,13,4];
+values.forEach(function(value){
+  tree2.add(value);
+});
+
+var tree2animate = new AnimatedTree(tree2, 'tree2');
+
+$('#tree2Left').on('click', function() {
+  tree2animate.left();
+});
+
+$('#tree2Right').on('click', function() {
+  tree2animate.right();
 });

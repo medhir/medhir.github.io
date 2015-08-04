@@ -290,6 +290,10 @@ textarea {
     color: #00CCFF;
 }
 
+.twitter-blue-square {
+    background-color: #00CCFF;
+}
+
 .right {
     float: right;
 }
@@ -377,6 +381,11 @@ textarea {
 .post-black {
     border-right: 5px solid black;
     border-left: 5px solid black; 
+}
+
+.post-orange {
+    border-right: 5px solid #FF9900;
+    border-left: 5px solid #FF9900;
 }
 
 .post-pink {

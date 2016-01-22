@@ -21,14 +21,14 @@
         <![endif]-->
         <div class="container">
             <div class="row">
-                <h1 class="logo">recursion</h1>
+                <h1 class="logo">jams w / twitter streaming api</h1>
                 <div class="logo-underline">
-                    <div class="square orange-square"></div>
-                    <div class="square orange-square"></div>
-                    <div class="square orange-square"></div>
-                    <div class="square orange-square"></div>
-                    <div class="square orange-square"></div>
-                    <div class="square orange-square"></div>
+                    <div class="square twitter-blue-square"></div>
+                    <div class="square twitter-blue-square"></div>
+                    <div class="square twitter-blue-square"></div>
+                    <div class="square twitter-blue-square"></div>
+                    <div class="square twitter-blue-square"></div>
+                    <div class="square twitter-blue-square"></div>
                 </div>
             </div>
 
@@ -45,9 +45,15 @@
             <section class="main-content">
                 <div class="row">
                     <div class="twelve columns">
-                        <p>This is a visualization of recursion. The algorithm is searching for all possible paths from the top-left to the bottom-right corner of the grid.</p>
-                        <div id="pathsBoard"></div>
-                        <div id="solution"></div>
+                        <p>Twitter's API provides extremely powerful tools for interacting with their services. In this blog post, I hope to show the power and creativity that can be harnessed through the use of their <a href="">streaming API</a>. This streaming service allows you to gather tweets equivalent to 1% of all public messages that go through Twitter's servers. <!-- Insert stat about tweets recieved per second? -->The neat part of this API is that you can recieve tweets in real-time for specific <a href="https://dev.twitter.com/streaming/overview/request-parameters">users, keywords, URLs, and locations.</a></p>
+                        <div id="musicContainer"><!-- Put the music in here using twitter --></div>
+                        <p>My plan is to use the streaming API to upload music to this box right above. The basic idea is to be able to tweet a link to a song I'm currently enjoying, and have it show up on my blog automatically.</p>
+                        <h5>At a high level:</h5>
+                        <ul>
+                            <li>I will open up a streaming connection to twitter to monitor my tweets.</li>
+                            <li>The blog will be updated whenever I send a link to a SoundCloud song and the hashtag #changeSong</li>
+                            <li>I will write a bash script to automatically change the link to the song. </li>
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -56,18 +62,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="lib/d3/d3.min.js"></script>
-        <script src="js/paths.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         <script src="lib/highlight.pack.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
-        <script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--<script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
             e=o.createElement(i);r=o.getElementsByTagName(i)[0];
             e.src='https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-66361342-1','auto');ga('send','pageview');
-        </script>
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>-->
     </body>
 </html>

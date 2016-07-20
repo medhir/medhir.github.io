@@ -3,10 +3,10 @@ $(document).ready(function() {
 	var userFeed = new Instafeed({
 		get: 'user',
 		userId: 5041998,
-		accessToken: '5041998.467ede5.eda9b77bc7064a8db7088a9c2f774337',
-		limit: 9, 
-		resolution: 'low_resolution',
-		clientId: 'e5905a0b63414b93b329c5222bc5d114'
+		accessToken: '5041998.1677ed0.89dcf49f9361456888b1ff7e61e6ddee',
+		limit: 28, 
+		resolution: 'standard_resolution',
+		clientId: '	7f76641c81e04ddd9262aa9a083af8e9'
 	});
 
 	userFeed.run();

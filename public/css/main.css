@@ -150,7 +150,7 @@ textarea {
     }
 
     #instafeed img {
-        width: 45%; 
+        width: 100%; 
         margin-right: 2.5%;
         margin-left: 2.5%;
         margin-bottom: 5%;
@@ -189,8 +189,7 @@ textarea {
     }
 
     #instafeed img {
-        width: 45%;
-        margin: 10px;
+        width: 30%;
     }
 }
 
@@ -213,8 +212,7 @@ textarea {
     }
 
     #instafeed img {
-        width: 30%;
-        margin: 10px;
+        width: 25%;
     }
 }
 

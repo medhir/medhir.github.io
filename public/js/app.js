@@ -4,7 +4,7 @@ $(document).ready(function() {
 		get: 'user',
 		userId: 5041998,
 		accessToken: '5041998.1677ed0.89dcf49f9361456888b1ff7e61e6ddee',
-		limit: 28, 
+		limit: 9, 
 		resolution: 'standard_resolution',
 		clientId: '	7f76641c81e04ddd9262aa9a083af8e9'
 	});

@@ -1,0 +1,64 @@
+body, html, .partyScreen {
+  height:100%;
+}
+body{
+  background-color: #000;
+  margin: 0px;
+  font-size: 18px;
+}
+body, a:link, a:visited, a:active{
+  color: lightblue;
+}
+.title, .addDancerButton{
+  padding:5px 12px;
+  float:right;
+}
+.topbar{
+  height:32px;
+  background-color: #555;
+}
+.title{
+  background-color: #777;
+}
+.line{
+  background-color:#000;
+  height: 5px;
+  width: 100px;
+  position:absolute;
+}
+
+@-webkit-keyframes rotate-right {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotate-right {
+    -webkit-animation: rotate-right 3s linear infinite;
+}
+
+@-webkit-keyframes rotate-left {
+    from{
+        -webkit-transform: rotate(360deg);
+    }
+    to{
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+.rotate-left {
+    -webkit-animation: rotate-left 3s linear infinite;
+}
+
+@-webkit-keyframes extend {
+  0% {-webkit-transform: rotate(15deg) scale(1,1);}
+  50% {-webkit-transform: rotate(15deg) scale(5,1);}
+  100% {-webkit-transform: rotate(15deg) scale(1,1);}
+}
+
+.extend {
+  -webkit-animation: extend 3s linear infinite;
+}

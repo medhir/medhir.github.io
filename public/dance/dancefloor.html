@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object Dance Party</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="lib/jquery.js"></script>
+    <script src="src/line.js"></script>
+    <script src="src/spinningLine.js"></script>
+    <script src="src/extendLine.js"></script>
+    <script src="lib/underscore.js"></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <span class="title">object dance party</span>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="Line">colored line</a>
+      <a href='#' class="addDancerButton" data-dancer-maker-function-name="SpinningLine">spinning line</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ExtendLine">groovy line</a>
+      <button class="fillScreen">fill Screen!</button>
+      <button class="groupColors">group colors!</button>
+      <button class="swapColors">RAVE!</button>
+      <button class="swapRotation">swap rotation!</button>
+      <button class="rotateRight">rotate right!</button>
+      <button class="lineUp">LINE 'EM UP BOYS</button>
+      <button class="scatter">Scatter</button>
+    </div>
+    <div class="partyScreen"></div>
+    <script src="src/init.js"></script>
+  </body>
+</html>

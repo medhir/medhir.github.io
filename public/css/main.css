@@ -305,7 +305,7 @@ textarea {
 }
 
 .navbar {
-    border-bottom: 1px solid #000;
+    /*border-bottom: 1px solid #000;*/
 }
 
 .navbar-item {
@@ -318,8 +318,7 @@ textarea {
 
 .navbar-link {
     font-size: 1.5em;
-    text-decoration: none;
-    color: #000;
+    color: blue;
     padding: 3px 10px 0px 10px;
 }
 
@@ -334,8 +333,7 @@ textarea {
 }
 
 .navbar-link:hover {
-    color: #000;
-    border-top: 1px solid #000;
+    color: #FF8C00;
 }
 
 .invert {
